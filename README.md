@@ -1,5 +1,5 @@
 # Captive-Portal
-This captive portal utilizes ESP8266 Specifically and its a captive portal so when users connect to the device it will redirect them to a page to enter their details in and will prompt them to enter their details and please this is for educational purposes only and all actions will be on you if you damage other peoples data or device using this thx
+This captive portal utilizes ESP8266 Specifically i wont support any other system. So the captive portal when users connect to the device it will redirect them to a page to enter their details in and will prompt them to enter their details and please this is for educational purposes only and all actions will be on you if you damage other peoples data or device using this thx
 
 
 WARNING THIS IS FOR EDUCATIONAL PURPOSES ONLY AND THIS IS ILLEGAL IF USED WITHOUT CONCENT IM NOT RESPONSIBLE FOR ANY DAMAGE TO USERS DATA IT IS ALL ON YOU IF YOU DECIDE TO USE IT IN THIS WAY!!!! 

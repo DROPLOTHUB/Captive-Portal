@@ -48,4 +48,4 @@ head to serial monitor on the IDE
 it should tell you the IP address that the webpage is on and all you would need to do is 
 connect using your phone or laptop anything that has wifi head to the ip and you should be greated with the login page
 what i done is anything you enter in to the Username & Password sections it will just now output it to the serial monitor 
-but its up to you from their on what you wanna do with it 
+but its up to you from their on what you wanna do with it.

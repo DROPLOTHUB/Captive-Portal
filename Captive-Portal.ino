@@ -3,7 +3,10 @@
 
 const char* ssid = "NodeMCU"; // Change this to your desired network name
 const char* password = "password"; // Change this to your desired network password
+
 ESP8266WebServer server(80);
+
+int numClients = 0; // Number of clients connected to the access point
 
 void handleRoot() {
   server.sendHeader("Location", "/login");
@@ -23,6 +26,11 @@ void handleLogin() {
   server.send(200, "text/html", html);
 }
 
+void handleDisconnect() {
+  Serial.println("Client disconnected");
+  numClients--; // Decrease the number of clients when a client disconnects
+}
+
 void setup() {
   WiFi.softAP(ssid, password); // Set up access point
   IPAddress IP = WiFi.softAPIP(); // Get IP address of the access point
@@ -33,9 +41,21 @@ void setup() {
   Serial.println(IP);
   server.on("/", handleRoot);
   server.on("/login", handleLogin);
+  server.onNotFound(handleRoot);
   server.begin();
+  pinMode(LED_BUILTIN, OUTPUT); // Set up built-in LED
+  digitalWrite(LED_BUILTIN, LOW); // Turn off the LED
 }
 
 void loop() {
   server.handleClient();
+  int currentClients = WiFi.softAPgetStationNum(); // Get the number of connected clients
+  if (currentClients != numClients) {
+    Serial.print("Number of clients connected: ");
+    Serial.println(currentClients);
+    numClients = currentClients;
+    digitalWrite(LED_BUILTIN, HIGH); // Flash the LED when a new client connects
+    delay(500);
+    digitalWrite(LED_BUILTIN, LOW);
+  }
 }
